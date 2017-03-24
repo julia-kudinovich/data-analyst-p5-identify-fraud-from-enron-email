@@ -212,7 +212,7 @@ for key, value in data_dict.iteritems():
     print 'Number of missing falues for', name, ': ', countNaN 
 
 
-# There are 21 features for each person in the dataset. And from above we see that there is a person that has 20 missing values (LOCKHART EUGENE E). I will remove this person form the dataset.
+# There are 21 features for each person in the dataset. And from above we see that there is a person that has 20 missing values (LOCKHART EUGENE E). I will remove this person from the dataset.
 
 # In[225]:
 
@@ -297,7 +297,7 @@ for person in data_dict:
 
 # I will test new features effect on the classification algorithm. I am going to run Decision Tree algorithm with and without new features and compare the results.
 
-# In[257]:
+# In[261]:
 
 features_list_prelim_wo_new = ['poi', 'salary', 'bonus', 'total_stock_value', 'exercised_stock_options', 'from_this_person_to_poi',
                  'from_poi_to_this_person', 'to_messages',  'long_term_incentive', 'shared_receipt_with_poi',
@@ -308,6 +308,8 @@ features_list_prelim_w_new = ['poi', 'salary', 'bonus', 'total_stock_value', 'ex
                         'from_messages',  'restricted_stock', 'total_payments', 'from_poi_to_this_person_proportion',
                              'from_this_person_to_poi_proportion']
 
+#Implementing Decision Tree Classifier
+clf=tree.DecisionTreeClassifier()
 
 #Using test_classifier from tester.py
 print 'Test Classifier without new features implementation:'
@@ -343,7 +345,7 @@ for impt_num, impt in enumerate(k_best.scores_):
     print features_list_prelim[1+impt_num], impt
 
 
-# From the result above it is seen that `to_messages and from_messages` have the lowest scores. I will exclude these 2 features form my feature_list. Let's check the effect of removing these 2 features on the classifier:
+# From the result above it is seen that `to_messages and from_messages` have the lowest scores. I will exclude these 2 features from my feature_list. Let's check the effect of removing these 2 features on the classifier:
 
 # In[260]:
 
